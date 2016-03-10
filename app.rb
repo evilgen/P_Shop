@@ -7,7 +7,7 @@ require 'sinatra/activerecord'
 #Создание подключения к БД при помощи Active Record
 set :database, "sqlite3:pizzashop.db"
 
-class Produt < ActiveRecord::Base
+class Product < ActiveRecord::Base
 end
 
 
