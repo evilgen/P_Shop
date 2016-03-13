@@ -33,3 +33,17 @@ function show_items()
 	}
 	document.getElementById("cart").innerHTML = "Your cart contains " + total + " items";
 }
+
+function cart_get_orders()
+{
+	var orders = '';
+	for (var i = 0; i < localStorage.length; i++){
+    	var key = window.localStorage.key(i) // получаем ключ
+    	var value = window.localStorage.getItem(key); //получаем значение
+       	if (key.indexOf('product_') == 0) //проверяем ключ на совпадение с нужным product_, если входжение с начала (0 позиция), то ключ наш.
+       	{
+       		orders = orders + key + '=' + value + ','
+       	}
+	}
+	return orders
+}
