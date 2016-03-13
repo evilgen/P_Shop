@@ -19,6 +19,7 @@ function add_to_cart(id)
 	window.localStorage.setItem(key, x);
 	//вывод количества айтемов
 	update_orders();
+	update_orders_button();
 }
 
 function show_items()
@@ -31,7 +32,14 @@ function show_items()
        		total = total + window.localStorage.getItem(key)*1; //получаем значение из хеша по ключу и наращиваем total
        	}
 	}
-	document.getElementById("cart").innerHTML = "Your cart contains " + total + " items";
+	//document.getElementById("cart").innerHTML = "Your cart contains " + total + " items";
+	return total
+}
+
+function update_orders_button()
+{
+	var text = 'Cart (' + show_items() + ')';
+	$('#orders_button').val(text);
 }
 
 function update_orders()
