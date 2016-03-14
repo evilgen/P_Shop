@@ -1,3 +1,4 @@
+//ничего не значащая функция
 function something()
 	{
 		// получаем значение из LocalStorage
