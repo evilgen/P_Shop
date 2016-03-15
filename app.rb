@@ -23,3 +23,7 @@ end
 post '/cart' do
 	erb :cart
 end
+
+def parse_order_line orders_input
+	arr = (t.delete! ("product_")).split(',').map{|elem| elem.split('=')}
+end
