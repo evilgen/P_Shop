@@ -21,9 +21,12 @@ get '/about' do
 end
 
 post '/cart' do
-	erb :cart
+	orders_input = params[:orders]
+	@orders = parse_order_line orders_input
+	erb "Hello #{@orders}"
 end
 
 def parse_order_line orders_input
-	arr = (t.delete! ("product_")).split(',').map{|elem| elem.split('=')}
+	arr = (orders_input.delete "product_").split(',').map{|el| el.split('=')}
+	return arr
 end
