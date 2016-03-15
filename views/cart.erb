@@ -1,22 +1,27 @@
 <h2>Products in cart</h2>
 <hr />
-<table class="table table-bordered">
+<table class="table table-striped">
 	<thead>
-		<th>View</th>
 		<th>Name of product</th>
-		<th>Size</th>
-		<th>Quantity</th>
 		<th>Prise</th>
-		<th>Total</th>
+		<th>Quantity</th>
 	</thead>
 	<tbody>
+		<% total_qty = 0 %>
+		<% total_price = 0 %>
+		<% @orders.each do |order| %>
+		<tr>
+			<td><%= order[0].title %></td>
+			<td><%= order[0].price %></td>
+			<td><%= order[1] %></td>
+		</tr>
+		<% total_qty += order[1].to_i %>
+		<% total_price += order[0].price * order[1].to_i %>
+		<% end %>
 		<tr>
 			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
+			<td>Total: <%= total_price %> UAH</td>
+			<td><%= total_qty %></td>
 		</tr>
 	</tbody>
 </table>
