@@ -44,3 +44,8 @@ post '/place_order' do
   order.save
   erb "Ваш заказ принят."
 end
+
+get '/orders' do
+  @list = Order.order('created_at DESC')
+  erb :orders
+end
