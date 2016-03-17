@@ -70,5 +70,7 @@ function cancel_order()
 	update_orders();
 	update_orders_button();
 
+	$('#cart').text('Your catr is now epmty.');
+
 	return false;
 }
