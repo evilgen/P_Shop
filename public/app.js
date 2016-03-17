@@ -62,3 +62,9 @@ function cart_get_orders()
 	}
 	return orders
 }
+
+function cancel_order()
+{
+	alert('123');
+	return false;
+}
