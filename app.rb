@@ -27,6 +27,11 @@ post '/cart' do
 	@orders_input = params[:orders]
 	@orders = parse_order_line @orders_input
 
+#если корзина буста, сообщаем об этом.
+	if @orders.length == 0
+		return erb :cart_is_empty
+	end
+
 	@orders.each do |order|
 		order[0] = Product.find(order[0])
 	end
