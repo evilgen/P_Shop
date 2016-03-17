@@ -42,7 +42,7 @@ end
 post '/place_order' do
   order = Order.new params[:order]
   order.save
-  erb "Ваш заказ принят."
+  erb :order_placed
 end
 
 get '/orders' do
