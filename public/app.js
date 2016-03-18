@@ -9,6 +9,7 @@ function add_to_cart(id)
 	update_orders_button();
 }
 
+// функция подсчета общего количества единиц заказанных товаров
 function show_items()
 {
 	var total = 0;
@@ -23,18 +24,21 @@ function show_items()
 	return total
 }
 
+// отображение количества товаров в корзине на кнопке
 function update_orders_button()
 {
 	var text = 'Cart (' + show_items() + ')';
 	$('#orders_button').val(text);
 }
 
+// запись строки заказа в определенный элемент
 function update_orders()
 {
 	var orders = cart_get_orders();
 	$('#orders_input').val(orders);
 }
 
+// Формирование строки заказа
 function cart_get_orders()
 {
 	var orders = '';
@@ -49,13 +53,14 @@ function cart_get_orders()
 	return orders
 }
 
+// очистка корзины заказа с обновлением строки заказа и значения на кнопке
 function cancel_order()
 {
 	window.localStorage.clear();
 	
 	update_orders();
 	update_orders_button();
-
+// отображение уведомления об очистки корзины (localStorage)
 	$('#cart').text('Your catr is now epmty.');
 
 	return false;
